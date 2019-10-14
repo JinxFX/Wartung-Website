@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bgimg {
+  background-image: url('bg.jpg');
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.bottomright {
+  position: absolute;
+  bottom: 0;
+  right: 16px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+hr {
+  margin: auto;
+  width: 100%;
+}
+</style>
+<body>
+
+<div class="bgimg">
+  <div class="topleft">
+    <a href="https://www.youtube.com/channel/YOURCHANNEL"><img src="Logo.png" alt="Logo" height="100px" width="auto" ></a>
+  </div>
+  <div class="middle">
+    <h1>COMING SOON</h1>
+    <hr>
+    <p id="show" style="font-size:30px"></p>
+  </div>
+  <div class="bottomright">
+    <p>Text (kann ausgelassen werden)</p>
+  </div>
+</div>
+
+<script>
+// Setzte das Zieldatum
+var countDownDate = new Date("Dec 24, 2019 00:00:00").getTime();
+
+// Jede Sekunde refreshen
+var countdownfunction = setInterval(function() {
+
+  // Datum und Zeit herausfinden
+  var now = new Date().getTime();
+
+  // Zieldatum minus derzeitiges Datum
+  var distance = countDownDate - now;
+
+  // Rechnungen für Tage, Stunden, Minuten und Sekunden
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Output in der ID "show" speichern
+  document.getElementById("show").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // Wenn der Countdown 0 ist, schreibe diesen Text
+  if (distance < 0) {
+    clearInterval(countdownfunction);
+    document.getElementById("show").innerHTML = "ENDE";
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
